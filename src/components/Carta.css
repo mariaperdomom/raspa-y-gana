@@ -1,39 +1,24 @@
 .carta {
-    position: relative;
-    width: 200px;
-    height: 300px;
-    background-color: #ddd;
-    border-radius: 10px;
-    overflow: hidden;
-    cursor: pointer;
-  }
-  
-  .raspado {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.7);
-    cursor: pointer;
-  }
-  
-  .raspado::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: url('/public/images.png') repeat;
-    pointer-events: none;
-    animation: raspado 2s infinite linear;
-  }
-  
-  @keyframes raspado {
-    0% {
-      background-position: 0 0;
-    }
-    100% {
-      background-position: 100% 100%;
-    }
-  }
-  
+  position: relative;
+  width: 200px;
+  height: 300px;
+  background-color: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.video-premio {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.raspado {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
