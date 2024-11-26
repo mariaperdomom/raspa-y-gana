@@ -66,7 +66,7 @@ const Carta: React.FC<CartaProps> = ({ id, onRaspadoComplete, videoSrc, reinicia
 
     const x = posX - rect.left;
     const y = posY - rect.top;
-    const radius = 30;
+    const radius = Math.min(canvas.width, canvas.height) / 6;
 
     ctx.globalCompositeOperation = 'destination-out';
     ctx.beginPath();
