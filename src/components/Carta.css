@@ -1,11 +1,12 @@
 .carta {
   position: relative;
-  width: 250px;
-  height: 250px;
+  /* width: 250px;
+  height: 250px; */
   background-color: #ddd;
   border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
+  aspect-ratio: 1;
 }
 
 .video-premio {
