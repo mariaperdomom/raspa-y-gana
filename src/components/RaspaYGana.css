@@ -1,0 +1,28 @@
+.fixed {
+    position: fixed;
+  }
+  .inset-0 {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  .bg-black {
+    background-color: black;
+  }
+  .bg-opacity-80 {
+    background-opacity: 0.8;
+  }
+  .z-50 {
+    z-index: 50;
+  }
+  .flex {
+    display: flex;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .justify-center {
+    justify-content: center;
+  }
+  
