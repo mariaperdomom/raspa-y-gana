@@ -23,7 +23,7 @@ const Carta: React.FC<CartaProps> = ({ id, onRaspadoComplete, videoSrc }) => {
   }, []);
 
   useEffect(() => {
-    if (raspadoPorcentaje >= 90 && !raspada) {
+    if (raspadoPorcentaje >= 70 && !raspada) {
       setRaspada(true);
       onRaspadoComplete(id);
     }
@@ -42,7 +42,7 @@ const Carta: React.FC<CartaProps> = ({ id, onRaspadoComplete, videoSrc }) => {
 
     const x = posX - rect.left;
     const y = posY - rect.top;
-    const radius = 15;
+    const radius = 30;
 
     // Simula el raspado con transparencia
     ctx.globalCompositeOperation = 'destination-out';
@@ -66,8 +66,8 @@ const Carta: React.FC<CartaProps> = ({ id, onRaspadoComplete, videoSrc }) => {
         <canvas
           ref={canvasRef}
           className="raspado"
-          width={200}
-          height={300}
+          width={250}
+          height={250}
           onMouseMove={handleRaspar}
           onTouchMove={handleRaspar}
         />
