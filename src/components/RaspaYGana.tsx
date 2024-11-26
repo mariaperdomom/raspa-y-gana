@@ -79,7 +79,7 @@ const RaspaYGana: React.FC = () => {
           />
         ))}
       </div>
-      <p className="text-center mt-4">Juegos jugados: {juegosJugados}</p>
+      <p className="text-center mt-4">Interacciones: {juegosJugados}</p>
     </div>
   );
 };
