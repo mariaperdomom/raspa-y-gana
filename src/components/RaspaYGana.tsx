@@ -6,13 +6,13 @@ const RaspaYGana: React.FC = () => {
   const [videoEnPantallaCompleta, setVideoEnPantallaCompleta] = useState<string | null>(null);
   const [reiniciarJuego, setReiniciarJuego] = useState(false);
   const [tarjetaActiva, setTarjetaActiva] = useState<number | null>(null);
-  const [interaccionUsuario, setInteraccionUsuario] = useState(false);
+  const [interaccionUsuario, setInteraccionUsuario] = useState(false); // Detecta si hubo interacción
   const [juegosJugados, setJuegosJugados] = useState<number>(
     parseInt(localStorage.getItem('juegosJugados') || '0')
   );
 
   const manejarInteraccion = () => {
-    setInteraccionUsuario(true);
+    setInteraccionUsuario(true); // Se registra que el usuario interactuó
   };
 
   const handleRaspadoComplete = (id: number) => {
@@ -59,11 +59,16 @@ const RaspaYGana: React.FC = () => {
           <video
             src={videoEnPantallaCompleta}
             autoPlay
-            muted={!interaccionUsuario}
+            muted={!interaccionUsuario} // Se desactiva mute solo tras interacción
             controls
             onEnded={handleReinicio}
             style={{ width: '75%', height: '75%' }}
           />
+          {!interaccionUsuario && (
+            <p className="absolute bottom-4 text-white text-sm">
+              Toca la pantalla para activar el sonido
+            </p>
+          )}
         </div>
       )}
 

@@ -90,7 +90,7 @@ const Carta: React.FC<CartaProps> = ({ id, onRaspadoComplete, videoSrc, reinicia
 
   return (
     <div className="carta relative aspect-w-1 aspect-h-1">
-      <video className="video-premio w-full h-full object-cover" src={videoSrc} muted loop />
+      <video className="video-premio w-full h-full object-cover" src={videoSrc} muted />
       {!raspada && (
         <canvas
           ref={canvasRef}
