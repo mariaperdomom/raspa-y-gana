@@ -7,9 +7,17 @@ interface CartaProps {
   videoSrc: string;
   reiniciar: boolean;
   tarjetaActiva: number | null;
+  interaccionUsuario: boolean; // Prop recibido desde RaspaYGana
 }
 
-const Carta: React.FC<CartaProps> = ({ id, onRaspadoComplete, videoSrc, reiniciar, tarjetaActiva }) => {
+const Carta: React.FC<CartaProps> = ({
+  id,
+  onRaspadoComplete,
+  videoSrc,
+  reiniciar,
+  tarjetaActiva,
+  interaccionUsuario, // Usar la propiedad interaccionUsuario
+}) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [raspada, setRaspada] = useState(false);
   const [raspadoPorcentaje, setRaspadoPorcentaje] = useState(0);
@@ -39,8 +47,6 @@ const Carta: React.FC<CartaProps> = ({ id, onRaspadoComplete, videoSrc, reinicia
     if (reiniciar) {
       setRaspadoPorcentaje(0);
       setRaspada(false);
-
-      // Asegurarse de que el canvas también se reinicie
       setTimeout(() => {
         ajustarCanvas();
       }, 0); // Espera mínima para reiniciar después del ajuste
@@ -91,6 +97,13 @@ const Carta: React.FC<CartaProps> = ({ id, onRaspadoComplete, videoSrc, reinicia
   return (
     <div className="carta relative aspect-w-1 aspect-h-1">
       <video className="video-premio w-full h-full object-cover" src={videoSrc} muted />
+      
+      {/* Mostrar la mano animada solo cuando el usuario no ha interactuado */}
+      {/* {!interaccionUsuario && !raspada && (
+        <div className="mano-animada" />
+      )} */}
+
+      {/* Mostrar el canvas para raspar si no está raspada */}
       {!raspada && (
         <canvas
           ref={canvasRef}

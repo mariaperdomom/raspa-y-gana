@@ -6,13 +6,11 @@ const RaspaYGana: React.FC = () => {
   const [videoEnPantallaCompleta, setVideoEnPantallaCompleta] = useState<string | null>(null);
   const [reiniciarJuego, setReiniciarJuego] = useState(false);
   const [tarjetaActiva, setTarjetaActiva] = useState<number | null>(null);
-  const [interaccionUsuario, setInteraccionUsuario] = useState(false); // Detecta si hubo interacción
-  const [juegosJugados, setJuegosJugados] = useState<number>(
-    parseInt(localStorage.getItem('juegosJugados') || '0')
-  );
+  const [interaccionUsuario, setInteraccionUsuario] = useState(false);
+  const [juegosJugados, setJuegosJugados] = useState<number>(parseInt(localStorage.getItem('juegosJugados') || '0'));
 
   const manejarInteraccion = () => {
-    setInteraccionUsuario(true); // Se registra que el usuario interactuó
+    setInteraccionUsuario(true); // Marca que el usuario interactuó
   };
 
   const handleRaspadoComplete = (id: number) => {
@@ -50,25 +48,20 @@ const RaspaYGana: React.FC = () => {
 
   return (
     <div
-      className="relative"
-      onClick={manejarInteraccion}
-      onTouchStart={manejarInteraccion}
+        className="relative"
+        onClick={manejarInteraccion} // Detecta la interacción del usuario
+        onTouchStart={manejarInteraccion} // Detecta la interacción táctil
     >
       {videoEnPantallaCompleta && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50">
-          <video
-            src={videoEnPantallaCompleta}
-            autoPlay
-            muted={!interaccionUsuario} // Se desactiva mute solo tras interacción
-            controls
-            onEnded={handleReinicio}
-            style={{ width: '75%', height: '75%' }}
-          />
-          {!interaccionUsuario && (
-            <p className="absolute bottom-4 text-white text-sm">
-              Toca la pantalla para activar el sonido
-            </p>
-          )}
+            <video
+                src={videoEnPantallaCompleta}
+                autoPlay
+                muted={!interaccionUsuario}
+                controls
+                onEnded={handleReinicio}
+                style={{ width: '75%', height: '75%' }}
+            />
         </div>
       )}
 
@@ -81,6 +74,7 @@ const RaspaYGana: React.FC = () => {
             videoSrc={video}
             reiniciar={reiniciarJuego}
             tarjetaActiva={tarjetaActiva}
+            interaccionUsuario={interaccionUsuario} // Pasar el estado de interacción aquí
           />
         ))}
       </div>
